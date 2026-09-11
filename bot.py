@@ -2,7 +2,7 @@ import os
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"].strip()
+TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"].replace("\n", "").replace("\r", "").strip()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
